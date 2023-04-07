@@ -22,12 +22,12 @@ header {
 
 .container {
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 8 rem);
-}
-
-.container {
   padding: 1em;
   display: flex;
   width: 100%;
   justify-content: center;
+}
+
+.taskList {
+  grid-column: 1;
 }
