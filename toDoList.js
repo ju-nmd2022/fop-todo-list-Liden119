@@ -1,0 +1,3 @@
+tasks = [];
+
+function addTaskToList() {}

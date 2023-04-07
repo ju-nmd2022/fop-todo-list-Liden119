@@ -1,0 +1,33 @@
+html,
+body {
+  margin: 0;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  background-color: black;
+}
+
+.motivationImage {
+  grid-column: 2;
+  width: 100%;
+}
+
+.container {
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 8 rem);
+}
+
+.container {
+  padding: 1em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
