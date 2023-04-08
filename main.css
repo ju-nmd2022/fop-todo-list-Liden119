@@ -27,8 +27,28 @@ header {
   padding: 1em;
 }
 
+.task {
+  background-color: chocolate;
+}
+
 .taskList {
   grid-column: 1;
+}
+
+.remove {
+  border-radius: 1em;
+  border: none;
+  color: white;
+  background-color: rgb(223, 24, 24);
+  float: right;
+}
+
+.completed {
+  border-radius: 1em;
+  border: none;
+  color: white;
+  background-color: rgb(14, 88, 5);
+  float: right;
 }
 
 #toDoHeader {
