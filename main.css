@@ -6,8 +6,8 @@ body {
 }
 
 header {
-  display: grid;
   grid-template-columns: repeat(2, 1fr);
+  display: grid;
   width: 100%;
   text-align: center;
   justify-items: center;
@@ -22,12 +22,21 @@ header {
 
 .container {
   grid-template-columns: repeat(2, 1fr);
-  padding: 1em;
-  display: flex;
-  width: 100%;
+  display: grid;
   justify-content: center;
+  padding: 1em;
 }
 
 .taskList {
   grid-column: 1;
+}
+
+#toDoHeader {
+  grid-column: 1;
+  background-color: blanchedalmond;
+}
+
+#completedHeader {
+  background-color: rgb(91, 165, 42);
+  grid-column: 2;
 }
