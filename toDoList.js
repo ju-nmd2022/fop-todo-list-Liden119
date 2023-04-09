@@ -1,10 +1,8 @@
-tasks = ["hej"];
-newTask = "";
+tasks = [];
+let newTask;
 
 const taskListElement = document.getElementById("taskList");
 const taskNameElement = document.getElementById("addTask");
-
-function addTaskToList() {}
 
 //"clean" the "old" list and load the current list
 function updateTasks() {
@@ -21,12 +19,23 @@ function updateTasks() {
     completedButton.innerText = "Completed";
     taskElement.appendChild(completedButton);
     completedButton.classList.add("completed");
+    completedButton.addEventListener("click", () => {
+      console.log("completed");
+    });
 
     //remove button
     const removeTaskButton = document.createElement("button");
     removeTaskButton.innerText = "Remove";
     taskElement.appendChild(removeTaskButton);
     removeTaskButton.classList.add("remove");
+
+    //remove a task
+    const taskIndex = tasks.indexOf(task);
+    removeTaskButton.addEventListener("click", () => {
+      console.log("delete");
+      tasks.splice(taskIndex, 1);
+      updateTasks();
+    });
   }
 }
 
@@ -52,7 +61,3 @@ addTaskButton.addEventListener("click", () => {
 });
 
 updateTasks();
-
-removeTaskButton.addEventListener("click", () => {
-  console.log("hej");
-});

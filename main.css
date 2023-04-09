@@ -49,6 +49,7 @@ header {
   color: white;
   background-color: rgb(14, 88, 5);
   float: right;
+  margin-right: 10px;
 }
 
 #toDoHeader {
