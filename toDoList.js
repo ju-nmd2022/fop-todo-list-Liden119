@@ -1,8 +1,8 @@
 tasks = ["hej"];
-newTask = "hej";
+newTask = "";
 
 const taskListElement = document.getElementById("taskList");
-const taskElement = document.getElementById("addTask");
+const taskNameElement = document.getElementById("addTask");
 
 function addTaskToList() {}
 
@@ -33,12 +33,12 @@ function updateTasks() {
 //Input in the "search/write bar"
 const inputElement = document.createElement("input");
 inputElement.placeholder = "Task-name";
-taskElement.appendChild(inputElement);
+taskNameElement.appendChild(inputElement);
 
 //the button to click to add tasks
 const addTaskButton = document.createElement("button");
 addTaskButton.innerText = "Add Task";
-taskElement.appendChild(addTaskButton);
+taskNameElement.appendChild(addTaskButton);
 
 //click function to make the text to a new task
 // and add to the tasks array
@@ -52,3 +52,7 @@ addTaskButton.addEventListener("click", () => {
 });
 
 updateTasks();
+
+removeTaskButton.addEventListener("click", () => {
+  console.log("hej");
+});
