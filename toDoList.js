@@ -1,5 +1,5 @@
-let tasks = JSON.parse(localStorage.tasks);
-let completedTasks = JSON.parse(localStorage.completed);
+let tasks = [];
+let completedTasks = [];
 let newTask;
 
 let tasksJSON;
@@ -105,6 +105,13 @@ function saveToStorage() {
   localStorage.tasks = tasksJSON;
   completedTasksJSON = JSON.stringify(completedTasks);
   localStorage.completed = completedTasksJSON;
+}
+
+if (localStorage) {
+  tasks = JSON.parse(localStorage.tasks);
+}
+if (localStorage.completed) {
+  completedTasks = JSON.parse(localStorage.completed);
 }
 
 updateTasks();
