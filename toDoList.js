@@ -1,9 +1,9 @@
-let tasks = [];
-let completedTasks = [];
+let tasks = JSON.parse(localStorage.tasks);
+let completedTasks = JSON.parse(localStorage.completed);
 let newTask;
 
-let completedTasksJSON;
 let tasksJSON;
+let completedTasksJSON;
 
 const taskListElement = document.getElementById("taskList");
 const completedTaskListElement = document.getElementById("completedTaskList");
@@ -39,6 +39,7 @@ function updateTasks() {
       tasks.splice(taskIndex, 1);
       updateTasks();
       updateCompletedTasks();
+      saveToStorage();
     });
 
     completedButton.addEventListener("click", () => {
@@ -46,7 +47,7 @@ function updateTasks() {
       tasks.splice(taskIndex, 1);
       updateTasks();
       updateCompletedTasks();
-      completedTasksJSON = JSON.stringify(completedTasks);
+      saveToStorage();
     });
   }
 }
@@ -72,6 +73,7 @@ function updateCompletedTasks() {
       completedTasks.splice(completedTaskIndex, 1);
       updateTasks();
       updateCompletedTasks();
+      saveToStorage();
     });
   }
 }
@@ -93,10 +95,16 @@ addTaskButton.addEventListener("click", () => {
     tasks.push(newTask);
     updateTasks();
     updateCompletedTasks();
-    tasksJSON = JSON.stringify(tasks);
-    console.log(tasksJSON);
+    saveToStorage();
   }
 });
 
-const jsonString = JSON.stringify(tasks);
-testList2 = JSON.parse(jsonString);
+function saveToStorage() {
+  tasksJSON = JSON.stringify(tasks);
+  localStorage.tasks = tasksJSON;
+  completedTasksJSON = JSON.stringify(completedTasks);
+  localStorage.completed = completedTasksJSON;
+}
+
+updateTasks();
+updateCompletedTasks();
