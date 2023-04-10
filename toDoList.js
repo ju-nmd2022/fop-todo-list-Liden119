@@ -87,6 +87,7 @@ taskNameElement.appendChild(inputElement);
 const addTaskButton = document.createElement("button");
 addTaskButton.innerText = "Add Task";
 taskNameElement.appendChild(addTaskButton);
+addTaskButton.classList.add("addButton");
 
 //click function to make a new task
 addTaskButton.addEventListener("click", () => {

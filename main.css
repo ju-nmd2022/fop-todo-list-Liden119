@@ -3,6 +3,8 @@ body {
   margin: 0;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  background-color: rgb(106, 119, 102);
 }
 
 header {
@@ -20,16 +22,6 @@ header {
   width: 100%;
 }
 
-#toDoHeader {
-  grid-column: 1;
-  background-color: blanchedalmond;
-}
-
-#completedHeader {
-  background-color: rgb(91, 165, 42);
-  grid-column: 2;
-}
-
 .container {
   padding: 1em;
 }
@@ -42,6 +34,10 @@ header {
   float: right;
 }
 
+.remove:hover {
+  background-color: rgb(105, 30, 30);
+}
+
 .completed {
   border-radius: 1em;
   border: none;
@@ -49,4 +45,13 @@ header {
   background-color: rgb(14, 88, 5);
   float: right;
   margin-right: 10px;
+}
+
+.completed:hover {
+  background-color: rgb(33, 49, 31);
+}
+
+.addButton:hover {
+  border-radius: 8px;
+  background-color: rgb(149, 184, 148);
 }
