@@ -1,4 +1,5 @@
-tasks = [];
+let tasks = [];
+let completedTasks = [];
 let newTask;
 
 const taskListElement = document.getElementById("taskList");
@@ -19,9 +20,6 @@ function updateTasks() {
     completedButton.innerText = "Completed";
     taskElement.appendChild(completedButton);
     completedButton.classList.add("completed");
-    completedButton.addEventListener("click", () => {
-      console.log("completed");
-    });
 
     //remove button
     const removeTaskButton = document.createElement("button");
@@ -29,13 +27,32 @@ function updateTasks() {
     taskElement.appendChild(removeTaskButton);
     removeTaskButton.classList.add("remove");
 
-    //remove a task
     const taskIndex = tasks.indexOf(task);
+
+    //remove a task
     removeTaskButton.addEventListener("click", () => {
       console.log("delete");
       tasks.splice(taskIndex, 1);
       updateTasks();
     });
+
+    completedButton.addEventListener("click", () => {
+      completedTasks.push(task);
+      tasks.splice(taskIndex, 1);
+      console.log(completedTasks);
+      updateTasks();
+      updateCompletedTasks();
+    });
+  }
+}
+
+function updateCompletedTasks() {
+  for (let completedTask of completedTasks) {
+    //the "task" "element / text"
+    const completedTaskElement = document.createElement("div");
+    completedTaskElement.innerText = completedTask;
+    completedTaskElement.classList.add("completedTask");
+    taskListElement.appendChild(completedTaskElement);
   }
 }
 
@@ -55,7 +72,6 @@ addTaskButton.addEventListener("click", () => {
   if (inputElement.value.length > 0) {
     newTask = inputElement.value;
     tasks.push(newTask);
-    console.log(tasks);
     updateTasks();
   }
 });
