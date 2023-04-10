@@ -20,19 +20,18 @@ header {
   width: 100%;
 }
 
-.container {
-  grid-template-columns: repeat(2, 1fr);
-  display: grid;
-  justify-content: center;
-  padding: 1em;
-}
-
-.task {
-  background-color: chocolate;
-}
-
-.taskList {
+#toDoHeader {
   grid-column: 1;
+  background-color: blanchedalmond;
+}
+
+#completedHeader {
+  background-color: rgb(91, 165, 42);
+  grid-column: 2;
+}
+
+.container {
+  padding: 1em;
 }
 
 .remove {
@@ -50,14 +49,4 @@ header {
   background-color: rgb(14, 88, 5);
   float: right;
   margin-right: 10px;
-}
-
-#toDoHeader {
-  grid-column: 1;
-  background-color: blanchedalmond;
-}
-
-#completedHeader {
-  background-color: rgb(91, 165, 42);
-  grid-column: 2;
 }

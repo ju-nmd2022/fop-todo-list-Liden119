@@ -1,13 +1,53 @@
 let tasks = [];
 let completedTasks = [];
 let newTask;
+let taskListElement;
+let completedTaskListElement;
+let taskNameElement;
 
-let completedTasksJSON;
-let tasksJSON;
+function onLoadHandler() {
+  taskListElement = document.getElementById("taskList");
+  completedTaskListElement = document.getElementById("completedTaskList");
+  taskNameElement = document.getElementById("addTask");
 
-const taskListElement = document.getElementById("taskList");
-const completedTaskListElement = document.getElementById("completedTaskList");
-const taskNameElement = document.getElementById("addTask");
+  taskListElement.innerHTML = "";
+  completedTaskListElement.innerHTML = "";
+  for (let task of tasks) {
+    //the "task" "element / text"
+    const taskElement = document.createElement("div");
+    taskElement.innerText = task;
+    taskElement.classList.add("task");
+    taskListElement.appendChild(taskElement);
+
+    //Completed button
+    const completedButton = document.createElement("button");
+    completedButton.innerText = "Completed";
+    taskElement.appendChild(completedButton);
+    completedButton.classList.add("completed");
+
+    //remove button
+    const removeTaskButton = document.createElement("button");
+    removeTaskButton.innerText = "Remove";
+    taskElement.appendChild(removeTaskButton);
+    removeTaskButton.classList.add("remove");
+
+    const taskIndex = tasks.indexOf(task);
+
+    //remove a task
+    removeTaskButton.addEventListener("click", () => {
+      tasks.splice(taskIndex, 1);
+      onLoadHandler();
+      updateCompletedTasks();
+    });
+
+    completedButton.addEventListener("click", () => {
+      completedTasks.push(task);
+      tasks.splice(taskIndex, 1);
+      onLoadHandler();
+      updateCompletedTasks();
+    });
+  }
+}
 
 //"clean" the "old" list and load the current list
 function updateTasks() {
@@ -46,7 +86,6 @@ function updateTasks() {
       tasks.splice(taskIndex, 1);
       updateTasks();
       updateCompletedTasks();
-      completedTasksJSON = JSON.stringify(completedTasks);
     });
   }
 }
@@ -93,10 +132,5 @@ addTaskButton.addEventListener("click", () => {
     tasks.push(newTask);
     updateTasks();
     updateCompletedTasks();
-    tasksJSON = JSON.stringify(tasks);
-    console.log(tasksJSON);
   }
 });
-
-const jsonString = JSON.stringify(tasks);
-testList2 = JSON.parse(jsonString);
