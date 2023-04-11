@@ -26,6 +26,15 @@ function updateTasks() {
     taskElement.appendChild(completedButton);
     completedButton.classList.add("completed");
 
+    //move task to completed list
+    completedButton.addEventListener("click", () => {
+      completedTasks.push(task);
+      tasks.splice(taskIndex, 1);
+      updateTasks();
+      updateCompletedTasks();
+      saveToStorage();
+    });
+
     //remove button
     const removeTaskButton = document.createElement("button");
     removeTaskButton.innerText = "Remove";
@@ -36,14 +45,6 @@ function updateTasks() {
 
     //remove a task
     removeTaskButton.addEventListener("click", () => {
-      tasks.splice(taskIndex, 1);
-      updateTasks();
-      updateCompletedTasks();
-      saveToStorage();
-    });
-
-    completedButton.addEventListener("click", () => {
-      completedTasks.push(task);
       tasks.splice(taskIndex, 1);
       updateTasks();
       updateCompletedTasks();
