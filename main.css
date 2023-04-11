@@ -1,0 +1,56 @@
+html,
+body {
+  margin: 0;
+  font-size: 18pt;
+  background-color: rgb(106, 119, 102);
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+header {
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  width: 100%;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  background-color: black;
+}
+
+.motivationImage {
+  grid-column: 2;
+  width: 100%;
+}
+
+.container {
+  padding: 1em;
+}
+
+.remove {
+  border-radius: 1em;
+  border: none;
+  color: white;
+  background-color: rgb(223, 24, 24);
+  float: right;
+}
+
+.remove:hover {
+  background-color: rgb(105, 30, 30);
+}
+
+.completed {
+  border-radius: 1em;
+  border: none;
+  color: white;
+  background-color: rgb(14, 88, 5);
+  float: right;
+  margin-right: 10px;
+}
+
+.completed:hover {
+  background-color: rgb(33, 49, 31);
+}
+
+.addButton:hover {
+  border-radius: 8px;
+  background-color: rgb(149, 184, 148);
+}
