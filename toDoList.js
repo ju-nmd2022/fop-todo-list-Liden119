@@ -108,7 +108,7 @@ function saveToStorage() {
   localStorage.completed = completedTasksJSON;
 }
 
-if (localStorage) {
+if (localStorage.tasks) {
   tasks = JSON.parse(localStorage.tasks);
 }
 if (localStorage.completed) {
